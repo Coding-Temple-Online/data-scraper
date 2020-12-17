@@ -39,7 +39,15 @@
     <main class="container">
         <div class="row">
             <div class="col-md-6">
-
+                <form class="form-inline" action="{{ url_for('index') }}" method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="form-group">
+                        {{ form.names.label(style='margin-right:15px') }}
+                        {{ form.names(class='form-control', style='margin-right:15px') }}
+                        {{ form.submit(class='btn btn-outline-info') }}
+                    </div>
+                    <!-- <input type="submit" value="Submit" class="btn btn-outline-info"> -->
+                </form>
             </div>
             <div class="col-md-6">
                 

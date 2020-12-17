@@ -1,4 +1,4 @@
-#!/home/derek/Development/coding_temple/week_09/thurs/data_scraper/venv/bin/python3
+#!/home/derek/Development/coding_temple/week_09/thurs/data-scraper/venv/bin/python3
 
 # -*- coding: utf-8 -*-
 import re

@@ -10,7 +10,8 @@ def populate_database(data):
     # Selenium functionality goes here
 
     # Acquire all player data from HTML table
-    tbody=[i for i in soup.find(class_='row-hover')]
+    tbody=[i for i in soup.find_all(class_='row-hover')][1]
+    # print(tbody)
     tr_list=[i for i in tbody if i !='\n']
 
     # compile a list of all players

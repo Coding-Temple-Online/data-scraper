@@ -49,9 +49,51 @@
                     <!-- <input type="submit" value="Submit" class="btn btn-outline-info"> -->
                 </form>
             </div>
-            <div class="col-md-6">
-                
+        </div>
+        <div class="row">
+            {% if players %}
+            <div class="table-responsive" style="margin-top: 15px;">
+                <table class="table table-striped table-inverse">
+                    <thead class="thead-inverse">
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Team</th>
+                            <th>Position</th>
+                            <th>Minutes Per Game</th>
+                            <th>Free Throw Attempts</th>
+                            <th>Free Throw %</th>
+                            <th>Two Pointer Attempts</th>
+                            <th>Two Pointer %</th>
+                            <th>Three Pointer Attempts</th>
+                            <th>Three Pointer Throw %</th>
+                            <th>PPG</th>
+                            <th>RPG</th>
+                            <th>APG</th>
+                            <th>SPG</th>
+                            <th>BPG</th>
+                            <th>TOPG</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {% for p in players %}
+                            <tr>
+                                <td>
+                                    <form action="{{ url_for('cronjob', id=p.id) }}" method="POST">
+                                        <input type="submit" class="btn btn-outline-warning" value="Set Cronjob">
+                                    </form>
+                                </td>
+                                {% for v in p.to_dict().values() %}
+                                    <td>{{ v }}</td>
+                                {% endfor %}
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                </table>
             </div>
+            {% else %}
+            <p>You have no players selected.</p>
+            {% endif %}
         </div>
     </main>
     <footer>
